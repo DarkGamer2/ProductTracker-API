@@ -2,10 +2,14 @@ import express from "express";
 import { Request, Response } from "express";
 import { ProductDetails } from "./interface/interface";
 import dotenv from "dotenv";
+import cors from "cors";
 dotenv.config();
 const app = express();
 const Product = require("./models/Product");
 
+app.use(cors());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.get("/api", (req: Request, res: Response) => {
   res.send("API is working properly");
 });
