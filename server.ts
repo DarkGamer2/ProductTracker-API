@@ -7,7 +7,11 @@ dotenv.config();
 const app = express();
 const Product = require("./models/Product");
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+  })
+);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.get("/api", (req: Request, res: Response) => {
