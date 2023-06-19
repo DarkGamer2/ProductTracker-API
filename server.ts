@@ -9,7 +9,14 @@ const Product = require("./models/Product");
 
 app.use(
   cors({
+    methods: ["GET", "POST", "DELETE", "PUT"],
     origin: "http://localhost:5173",
+    allowedHeaders: [
+      "Content-Type",
+      "Accept",
+      "Access-Control-Allow-Headers",
+      "Access-Control-Request-Headers",
+    ],
   })
 );
 app.use(express.urlencoded({ extended: true }));
